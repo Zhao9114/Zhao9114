@@ -24,7 +24,7 @@
 - 👨‍💻 Fullstack engineer who enjoys building end-to-end products, from clean UIs to solid backends
 - 🌐 All of my projects live at **[zhengyaoportfolio.vercel.app](https://zhengyaoportfolio.vercel.app/)**
 - 📫 Reach me at **zhengyaowong.cs@gmail.com**
-- ⚡ I care about owning my code deeply — understanding every line before it ships
+
 
 ---
 
