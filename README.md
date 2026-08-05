@@ -19,7 +19,7 @@
   <a href="mailto:zhengyaowong.cs@gmail.com">
     <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
-  <a href="https://www.instagram.com/YOUR-INSTAGRAM-USERNAME/" target="_blank">
+  <a href="https://www.instagram.com/zhao__119/" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
   </a>
 </div>
@@ -27,10 +27,6 @@
 <br />
 
 <!-- ============ ABOUT (two-column table) ============ -->
-<table align="center" width="100%">
-  <tr>
-    <td width="55%" valign="top">
-
 ### 🧑‍💻 About Me
 
 ```ts
@@ -48,12 +44,9 @@ const zhengYao = {
 - ⚡ I care about **owning my code deeply**
 - 📫 Reach me at **zhengyaowong.cs@gmail.com**
 
-  </td>
-    <td width="45%" valign="top" align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="100%" />
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="60%" />
+</div>
 
 <!-- ============ TECH STACK ============ -->
 <h3 align="center">🛠️ Languages & Tools</h3>
