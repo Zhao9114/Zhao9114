@@ -86,18 +86,18 @@ const zhengYao = {
 <h3 align="center">📊 GitHub Activity</h3>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.demolab.com?user=YOUR-GITHUB-USERNAME&theme=tokyonight&hide_border=true&stroke=6366F1&ring=6366F1&fire=0A66C2&currStreakLabel=6366F1" alt="streak" width="49%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR-GITHUB-USERNAME&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&title_color=6366F1" alt="top langs" width="40%" />
+  <img src="https://github-readme-streak-stats.demolab.com?user=Zhao9114&theme=tokyonight&hide_border=true&stroke=6366F1&ring=6366F1&fire=0A66C2&currStreakLabel=6366F1" alt="streak" width="49%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Zhao9114&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&title_color=6366F1" alt="top langs" width="40%" />
 </div>
 
 <!-- ============ ANIMATED SNAKE ============ -->
 <div align="center">
-  <img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-GITHUB-USERNAME/output/snake.svg" alt="snake animation" />
+  <img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/Zhao9114/output/snake.svg" alt="snake animation" />
 </div>
 
 <!-- ============ FOOTER WAVE ============ -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:6366F1,100:0A66C2&height=120&section=footer" alt="footer" />
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=YOUR-GITHUB-USERNAME&style=flat-square&color=6366F1&label=Profile+Views" alt="views" />
+  <img src="https://komarev.com/ghpvc/?username=Zhao9114style=flat-square&color=6366F1&label=Profile+Views" alt="views" />
 </div>
