@@ -85,7 +85,11 @@ const zhengYao = {
 
 <!-- ============ ANIMATED SNAKE ============ -->
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" alt="snake animation" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" />
+    <img alt="snake animation" src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" />
+  </picture>
 </div>
 
 <!-- ============ FOOTER WAVE ============ -->
