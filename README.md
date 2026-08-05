@@ -50,7 +50,7 @@ const zhengYao = {
 
   </td>
     <td width="45%" valign="top" align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=YOUR-GITHUB-USERNAME&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="100%" />
+      <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="100%" />
     </td>
   </tr>
 </table>
@@ -92,12 +92,12 @@ const zhengYao = {
 
 <!-- ============ ANIMATED SNAKE ============ -->
 <div align="center">
-  <img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/Zhao9114/output/snake.svg" alt="snake animation" />
+  <img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" alt="snake animation" />
 </div>
 
 <!-- ============ FOOTER WAVE ============ -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:6366F1,100:0A66C2&height=120&section=footer" alt="footer" />
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Zhao9114style=flat-square&color=6366F1&label=Profile+Views" alt="views" />
+  <img src="https://komarev.com/ghpvc/?username=Zhao9114&style=flat-square&color=6366F1&label=Profile+Views" alt="views" />
 </div>
