@@ -44,10 +44,6 @@ const zhengYao = {
 - ⚡ I care about **owning my code deeply**
 - 📫 Reach me at **zhengyaowong.cs@gmail.com**
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="60%" />
-</div>
-
 <!-- ============ TECH STACK ============ -->
 <h3 align="center">🛠️ Languages & Tools</h3>
 
