@@ -73,21 +73,3 @@
   <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="45" height="45"/>
 </p>
 
----
-
-### 📊 GitHub Stats
-
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=zhao9114&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="github stats" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=zhao9114&layout=compact&theme=tokyonight" alt="top languages" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=zhao9114&theme=tokyonight" alt="streak stats" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=zhao9114&theme=tokyonight&no-frame=true&column=7" alt="trophies" />
-  </a>
-</p>
