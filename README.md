@@ -44,6 +44,10 @@ const zhengYao = {
 - ⚡ I care about **owning my code deeply**
 - 📫 Reach me at **zhengyaowong.cs@gmail.com**
 
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="60%" />
+</div>
+
 <!-- ============ TECH STACK ============ -->
 <h3 align="center">🛠️ Languages & Tools</h3>
 
@@ -69,6 +73,14 @@ const zhengYao = {
 
 <img src="https://skillicons.dev/icons?i=pytorch,tensorflow&perline=7" alt="ml" />
 
+</div>
+
+<!-- ============ STATS ROW ============ -->
+<h3 align="center">📊 GitHub Activity</h3>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.demolab.com?user=Zhao9114&theme=tokyonight&hide_border=true&stroke=6366F1&ring=6366F1&fire=0A66C2&currStreakLabel=6366F1" alt="streak" width="49%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Zhao9114&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&title_color=6366F1" alt="top langs" width="40%" />
 </div>
 
 <!-- ============ ANIMATED SNAKE ============ -->
