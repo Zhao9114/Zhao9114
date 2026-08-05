@@ -1,6 +1,11 @@
 <!-- ============ HEADER WAVE ============ -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,50:6366F1,100:0F172A&height=200&section=header&text=Zheng%20Yao%20Wong&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Fullstack%20Engineer%20%C2%B7%20Malaysia%20to%20the%20US&descAlignY=58&descSize=18" alt="header" />
 
+<!-- ============ HERO GIF ============ -->
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/main/assets/thousand-sunny_800.gif" alt="Thousand Sunny" width="100%" />
+</div>
+
 <!-- ============ ANIMATED TYPING ============ -->
 <div align="center">
   <a href="https://git.io/typing-svg">
@@ -26,7 +31,7 @@
 
 <br />
 
-<!-- ============ ABOUT (two-column table) ============ -->
+<!-- ============ ABOUT ============ -->
 ### 🧑‍💻 About Me
 
 ```ts
@@ -44,43 +49,31 @@ const zhengYao = {
 - ⚡ I care about **owning my code deeply**
 - 📫 Reach me at **zhengyaowong.cs@gmail.com**
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Zhao9114&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6366F1&icon_color=0A66C2" alt="stats" width="60%" />
-</div>
-
 <!-- ============ TECH STACK ============ -->
 <h3 align="center">🛠️ Languages & Tools</h3>
 
 <div align="center">
 
-**Languages**
+<strong>Languages</strong>
 
 <img src="https://skillicons.dev/icons?i=python,java,ts,js,c,cpp,html&perline=7" alt="languages" />
 
-**Frontend & Frameworks**
+<strong>Frontend & Frameworks</strong>
 
 <img src="https://skillicons.dev/icons?i=react,vue,flutter,tailwind,graphql,nodejs&perline=7" alt="frameworks" />
 
-**Databases**
+<strong>Databases</strong>
 
 <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,firebase&perline=7" alt="databases" />
 
-**DevOps & Tools**
+<strong>DevOps & Tools</strong>
 
 <img src="https://skillicons.dev/icons?i=aws,docker,kubernetes,git,linux,androidstudio&perline=7" alt="devops" />
 
-**Machine Learning**
+<strong>Machine Learning</strong>
 
 <img src="https://skillicons.dev/icons?i=pytorch,tensorflow&perline=7" alt="ml" />
 
-</div>
-
-<!-- ============ STATS ROW ============ -->
-<h3 align="center">📊 GitHub Activity</h3>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.demolab.com?user=Zhao9114&theme=tokyonight&hide_border=true&stroke=6366F1&ring=6366F1&fire=0A66C2&currStreakLabel=6366F1" alt="streak" width="49%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Zhao9114&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&title_color=6366F1" alt="top langs" width="40%" />
 </div>
 
 <!-- ============ ANIMATED SNAKE ============ -->
