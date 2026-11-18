@@ -1,93 +1,54 @@
-<!-- ============ HEADER WAVE ============ -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,50:6366F1,100:0F172A&height=200&section=header&text=Zheng%20Yao%20Wong&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Fullstack%20Engineer%20%C2%B7%20Malaysia%20to%20the%20US&descAlignY=58&descSize=18" alt="header" />
+<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart + serpent refreshed daily by .github/workflows/widgets.yml -->
 
-<!-- ============ HERO GIF ============ -->
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/main/assets/thousand-sunny_800.gif" alt="Thousand Sunny" width="100%" />
-</div>
+<a href="https://zhengyaoportfolio.vercel.app/recruiter"><img src="assets/voyage/hero.svg" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>
 
-<!-- ============ ANIMATED TYPING ============ -->
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2800&pause=900&color=6366F1&center=true&vCenter=true&width=520&lines=Building+end-to-end+products+%F0%9F%9A%80;Clean+UIs+%2B+solid+backends;Owning+every+line+before+it+ships" alt="Typing SVG" />
-  </a>
-</div>
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Pirata+One&size=30&duration=3000&pause=900&color=F4C95D&center=true&vCenter=true&width=720&height=50&lines=Ahoy!+I'm+Zheng+Yao;Full-stack+developer+from+Malaysia;Now+building:+Combat+Capture;Owning+every+line+before+it+ships" alt="typing banner" />
+</p>
 
-<!-- ============ SOCIAL BADGES ============ -->
-<div align="center">
-  <a href="https://zhengyaoportfolio.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
-  </a>
-  <a href="https://www.linkedin.com/in/zheng-yao-wong/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="mailto:zhengyaowong.cs@gmail.com">
-    <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  <a href="https://www.instagram.com/zhao__119/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
-  </a>
-</div>
+<p align="center">
+  <a href="https://zhengyaoportfolio.vercel.app/recruiter"><img src="assets/voyage/nav-portfolio.svg" width="15%" alt="Portfolio" /></a>
+  <a href="https://zhengyaoportfolio.vercel.app/recruiter/projects"><img src="assets/voyage/nav-projects.svg" width="15%" alt="Projects" /></a>
+  <a href="https://zhengyaoportfolio.vercel.app/recruiter/research"><img src="assets/voyage/nav-research.svg" width="15%" alt="Research" /></a>
+  <a href="https://zhengyaoportfolio.vercel.app/recruiter/resume"><img src="assets/voyage/nav-resume.svg" width="15%" alt="Resume" /></a>
+  <a href="https://www.linkedin.com/in/zheng-yao-wong/"><img src="assets/voyage/nav-linkedin.svg" width="15%" alt="LinkedIn" /></a>
+  <a href="mailto:zhengyaowong.cs@gmail.com"><img src="assets/voyage/nav-email.svg" width="15%" alt="Email" /></a>
+</p>
 
-<br />
+<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/main/assets/thousand-sunny_800.gif" width="100%" alt="at sea" />
 
-<!-- ============ ABOUT ============ -->
-### 🧑‍💻 About Me
+<img src="assets/voyage/about.svg" width="100%" alt="About" />
 
-```ts
-const zhengYao = {
-  role: "Fullstack Engineer",
-  from: "Malaysia 🇲🇾",
-  basedIn: "United States 🇺🇸",
-  focus: ["end-to-end products", "clean UIs", "solid backends"],
-  principle: "understand every line before it ships",
-  portfolio: "zhengyaoportfolio.vercel.app",
-};
-```
+<img src="assets/voyage/chest.svg" width="100%" alt="Now building: Combat Capture" />
 
-- 🌐 Everything I build lives at **[my portfolio](https://zhengyaoportfolio.vercel.app/)**
-- ⚡ I care about **owning my code deeply**
-- 📫 Reach me at **zhengyaowong.cs@gmail.com**
+<img src="assets/voyage/h-projects.svg" width="100%" alt="Projects" />
 
-<!-- ============ TECH STACK ============ -->
-<h3 align="center">🛠️ Languages & Tools</h3>
+<p align="center">
+  <a href="https://github.com/ashzaeen/FinVantage"><img src="assets/voyage/card-finvantage.svg" width="49%" alt="FinVantage" /></a>
+  <a href="https://github.com/Zhao9114/CSE3311_resumeBuilder"><img src="assets/voyage/card-draftly.svg" width="49%" alt="Draftly" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Zhao9114/bacteria_annotation"><img src="assets/voyage/card-bacteria.svg" width="49%" alt="Bacteria Annotator" /></a>
+  <a href="https://github.com/kztJames01/hackUTA"><img src="assets/voyage/card-furever.svg" width="49%" alt="Furever Home" /></a>
+</p>
 
-<div align="center">
+<img src="assets/voyage/whale.svg" width="100%" alt="divider" />
 
-<strong>Languages</strong>
+<img src="assets/voyage/h-stack.svg" width="100%" alt="Tech stack" />
 
-<img src="https://skillicons.dev/icons?i=python,java,ts,js,c,cpp,html&perline=7" alt="languages" />
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,java,ts,js,c,cpp,html&theme=dark&perline=7" alt="skills" /><br/>
+  <img src="https://skillicons.dev/icons?i=react,vue,flutter,tailwind,graphql,nodejs&theme=dark&perline=7" alt="skills" /><br/>
+  <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,firebase,aws,docker,kubernetes&theme=dark&perline=7" alt="skills" /><br/>
+  <img src="https://skillicons.dev/icons?i=git,linux,androidstudio,pytorch,tensorflow&theme=dark&perline=7" alt="skills" /><br/>
+</p>
 
-<strong>Frontend & Frameworks</strong>
+<img src="assets/voyage/h-log.svg" width="100%" alt="Contributions" />
 
-<img src="https://skillicons.dev/icons?i=react,vue,flutter,tailwind,graphql,nodejs&perline=7" alt="frameworks" />
+<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/contrib-sea.svg" width="100%" alt="Contribution sea chart" />
 
-<strong>Databases</strong>
+<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/serpent.svg" width="100%" alt="sea serpent eating the contribution grid" />
 
-<img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,firebase&perline=7" alt="databases" />
+<a href="mailto:zhengyaowong.cs@gmail.com"><img src="assets/voyage/bottle.svg" width="100%" alt="Message in a bottle: zhengyaowong.cs@gmail.com" /></a>
 
-<strong>DevOps & Tools</strong>
-
-<img src="https://skillicons.dev/icons?i=aws,docker,kubernetes,git,linux,androidstudio&perline=7" alt="devops" />
-
-<strong>Machine Learning</strong>
-
-<img src="https://skillicons.dev/icons?i=pytorch,tensorflow&perline=7" alt="ml" />
-
-</div>
-
-<!-- ============ ANIMATED SNAKE ============ -->
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" />
-    <img alt="snake animation" src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/snake.svg" />
-  </picture>
-</div>
-
-<!-- ============ FOOTER WAVE ============ -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:6366F1,100:0A66C2&height=120&section=footer" alt="footer" />
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Zhao9114&style=flat-square&color=6366F1&label=Profile+Views" alt="views" />
-</div>
+<img src="assets/voyage/footer.svg" width="100%" alt="Footer" />

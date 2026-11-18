@@ -1,0 +1,47 @@
+# Redraws the themed contribution widget (and your snake) every day
+# and pushes them to the `output` branch, which the README reads from.
+name: profile widgets
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily, ~midnight Central
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install fonttools brotli
+
+      # night sea chart (writes dist/contrib-sea.svg)
+      - run: python scripts/contrib.py --user ${{ github.repository_owner }} --style sea --out dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # your snake, recolored as a gold sea serpent on night-sea dots
+      # (snake.svg / snake-dark.svg are still made in case anything else links to them)
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/serpent.svg?color_snake=#f4c95d&color_dots=#12233c,#14506a,#1f8a8a,#d9b26a,#f4c95d
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
