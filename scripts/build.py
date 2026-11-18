@@ -85,27 +85,9 @@ def readme_voyage(asset: str, raw: str) -> str:
     skills = "\n".join(
         f'  <img src="https://skillicons.dev/icons?i={row}&theme=dark&perline=7" alt="skills" /><br/>' for row in SKILLS
     )
-    lines = ";".join(
-        s.replace(" ", "+")
-        for s in [
-            "I'm Zheng Yao, future King of the Devs!",
-            "Full-stack developer from Malaysia",
-            "Setting sail for the Grand Line",
-            "Now building: Combat Capture",
-            "Owning every line before it ships",
-        ]
-    )
-    typing = (
-        "https://readme-typing-svg.demolab.com?font=Pirata+One&size=30&duration=3000&pause=900"
-        f"&color=F4C95D&center=true&vCenter=true&width=720&height=50&lines={lines}"
-    )
     return f"""<!-- NIGHT VOYAGE theme, Grand Line edition: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
 
 <a href="{NAV[0][1]}"><img src="{a("hero")}" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>
-
-<p align="center">
-  <img src="{typing}" alt="typing banner" />
-</p>
 
 <p align="center">
 {nav}
