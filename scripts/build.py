@@ -9,6 +9,8 @@ THEMES = {"voyage": theme_voyage}
 CONTRIB = {"beach": "beach", "wanted": "map", "voyage": "sea", "manga": "manga"}
 SKILL_THEME = {"beach": "light", "wanted": "light", "voyage": "dark", "manga": "light"}
 RAW = "https://raw.githubusercontent.com/Zhao9114/Zhao9114/output"
+# bump after changing the art so browsers and GitHub's image cache fetch the new SVGs
+ASSET_VERSION = "2"
 SKILLS = [
     "python,java,ts,js,c,cpp,html",
     "react,vue,flutter,tailwind,graphql,nodejs",
@@ -71,7 +73,7 @@ def readme(theme: str, asset: str, contrib_src: str) -> str:
 
 def readme_voyage(asset: str, raw: str) -> str:
     """Night Voyage gets extra animated pieces, so it has its own layout."""
-    a = lambda n: f"{asset}/{n}.svg"  # noqa: E731
+    a = lambda n: f"{asset}/{n}.svg?v={ASSET_VERSION}"  # noqa: E731
     nav = "\n".join(
         f'  <a href="{url}"><img src="{a("nav-" + label.lower())}" width="15%" alt="{label}" /></a>' for label, url in NAV
     )
