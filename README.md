@@ -49,4 +49,8 @@
 
 <a href="mailto:zhengyaowong.cs@gmail.com"><img src="assets/voyage/den-den-mushi.svg" width="100%" alt="Den Den Mushi: email zhengyaowong.cs@gmail.com" /></a>
 
+<p align="center">
+  <img src="assets/gifs/walking.gif" width="45%" alt="Walking on to the next adventure" />
+</p>
+
 <img src="assets/voyage/footer.svg" width="100%" alt="Footer" />
