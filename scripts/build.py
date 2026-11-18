@@ -88,8 +88,9 @@ def readme_voyage(asset: str, raw: str) -> str:
     lines = ";".join(
         s.replace(" ", "+")
         for s in [
-            "Ahoy! I'm Zheng Yao",
+            "I'm Zheng Yao, future King of the Devs!",
             "Full-stack developer from Malaysia",
+            "Setting sail for the Grand Line",
             "Now building: Combat Capture",
             "Owning every line before it ships",
         ]
@@ -98,7 +99,7 @@ def readme_voyage(asset: str, raw: str) -> str:
         "https://readme-typing-svg.demolab.com?font=Pirata+One&size=30&duration=3000&pause=900"
         f"&color=F4C95D&center=true&vCenter=true&width=720&height=50&lines={lines}"
     )
-    return f"""<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
+    return f"""<!-- NIGHT VOYAGE theme, Grand Line edition: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
 
 <a href="{NAV[0][1]}"><img src="{a("hero")}" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>
 
@@ -110,29 +111,29 @@ def readme_voyage(asset: str, raw: str) -> str:
 {nav}
 </p>
 
-<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/main/assets/thousand-sunny_800.gif" width="100%" alt="at sea" />
+<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/main/assets/thousand-sunny_800.gif" width="100%" alt="Thousand Sunny at sea" />
 
 <img src="{a("about")}" width="100%" alt="About" />
 
-<img src="{a("chest")}" width="100%" alt="Now building: Combat Capture" />
+<img src="{a("chest")}" width="100%" alt="Current arc, now building: Combat Capture" />
 
-<img src="{a("h-projects")}" width="100%" alt="Projects" />
+<img src="{a("h-projects")}" width="100%" alt="Bounties: projects" />
 
 {chr(10).join(cards)}
 
-<img src="{a("whale")}" width="100%" alt="divider" />
+<img src="{a("sea-king")}" width="100%" alt="A Sea King rising out of the water" />
 
-<img src="{a("h-stack")}" width="100%" alt="Tech stack" />
+<img src="{a("h-stack")}" width="100%" alt="Devil Fruits: tech stack" />
 
 <p align="center">
 {skills}
 </p>
 
-<img src="{a("h-log")}" width="100%" alt="Contributions" />
+<img src="{a("h-log")}" width="100%" alt="Log Pose: contributions" />
 
-<img src="{raw}/contrib-sea.svg" width="100%" alt="Contribution sea chart" />
+<img src="{raw}/contrib-sea.svg" width="100%" alt="Grand Line contribution chart" />
 
-<a href="mailto:zhengyaowong.cs@gmail.com"><img src="{a("bottle")}" width="100%" alt="Message in a bottle: zhengyaowong.cs@gmail.com" /></a>
+<a href="mailto:zhengyaowong.cs@gmail.com"><img src="{a("den-den-mushi")}" width="100%" alt="Den Den Mushi: email zhengyaowong.cs@gmail.com" /></a>
 
 <img src="{a("footer")}" width="100%" alt="Footer" />
 """

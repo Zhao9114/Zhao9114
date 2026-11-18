@@ -38,6 +38,7 @@ NAV = [
 PROJECTS = [
     dict(
         slug="finvantage",
+        bounty="1,500,000,000",
         name="FinVantage",
         kind="Hackathon · 2026",
         award="PNC Track Winner, HackUTD",
@@ -47,6 +48,7 @@ PROJECTS = [
     ),
     dict(
         slug="draftly",
+        bounty="800,000,000",
         name="Draftly",
         kind="Class project · 2026",
         award=None,
@@ -56,6 +58,7 @@ PROJECTS = [
     ),
     dict(
         slug="bacteria",
+        bounty="650,000,000",
         name="Bacteria Annotator",
         kind="Research · UTA lab",
         award=None,
@@ -65,6 +68,7 @@ PROJECTS = [
     ),
     dict(
         slug="furever",
+        bounty="320,000,000",
         name="Furever Home",
         kind="Hackathon · 2024",
         award="Best Use of MongoDB Atlas, HackUTA 6",

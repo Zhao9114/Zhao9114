@@ -412,7 +412,7 @@ def render_sea(weeks: list[list[Day]], s: Stats, pal: dict = NIGHT) -> str:
     {waves}
   </g>
   <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="none" stroke="{pal['frame']}" stroke-opacity=".3"/>
-  <text x="40" y="50" class="t">Sea Chart</text>
+  <text x="40" y="50" class="t">Grand Line Chart</text>
   <text x="{W - 40}" y="46" class="cap" text-anchor="end">LAST 12 MONTHS · UPDATED DAILY</text>
   <path d="{lane}" fill="none" stroke="{pal['wave']}" stroke-opacity=".3" stroke-dasharray="2 6"/>
   <g>{SHIP}<animateMotion dur="26s" repeatCount="indefinite" rotate="auto" path="{lane}"/></g>

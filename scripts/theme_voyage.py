@@ -1,10 +1,36 @@
-"""Theme 2: NIGHT VOYAGE. Deep navy sea, moonlight and gold."""
+"""Theme 2: NIGHT VOYAGE, Grand Line edition. Deep navy sea, moonlight and gold, One Piece motifs."""
 from common import *  # noqa: F403
 
 THEME = "voyage"
 NAVY, NAVY2, CARD = "#0a1628", "#0d2440", "#0e1d35"
 GOLD, FOAM, MUTED, TEAL, RED = "#f4c95d", "#e8dcc0", "#8aa4c4", "#1f8a8a", "#e5484d"
+STRAW, STRAW_D, HATBAND = "#f2cf63", "#b98d24", "#d7262e"
 FONTS = [("pirata", "Pirata"), ("inter", "Inter"), ("inter-bold", "InterB"), ("fira", "Fira")]
+POSTER_FONTS = FONTS + [("fell", "Fell")]  # wanted-poster lettering, only embedded where used
+
+
+def straw_hat(line: str = "#1a1206") -> str:
+    """Straw hat sized to sit on common.emblem()'s skull (centered on 0,0)."""
+    return f"""<g>
+  <path d="M-17,-17 Q-18,-42 0,-43 Q18,-42 17,-17 Z" fill="{STRAW}" stroke="{line}" stroke-width="1.6"/>
+  <path d="M-17.6,-25 Q0,-29 17.6,-25 L17.3,-18 Q0,-22 -17.3,-18 Z" fill="{HATBAND}"/>
+  <ellipse cx="0" cy="-16" rx="33" ry="7.5" fill="{STRAW}" stroke="{line}" stroke-width="1.6"/>
+  <path d="M-24,-15 Q0,-12 24,-15" fill="none" stroke="{STRAW_D}" stroke-width="1.2"/>
+</g>"""
+
+
+def jolly(ink: str, hole: str, accent: str | None = None, line: str = "#1a1206") -> str:
+    """The <skull /> code mark wearing a straw hat."""
+    return f"<g>{emblem(ink, hole, accent)}{straw_hat(line)}</g>"
+
+
+def berry(x: float, y: float, size: float = 20, fill: str = GOLD) -> str:
+    """Berry sign: a B with two vertical strokes through it."""
+    k = size / 20
+    return (
+        f'<text x="{x}" y="{y}" font-size="{size}" style="font-family:Fell,serif;fill:{fill}">B</text>'
+        f'<path d="M{x + 4.2 * k:.1f},{y - 17 * k:.1f} V{y + 3.5 * k:.1f} M{x + 8.4 * k:.1f},{y - 17 * k:.1f} V{y + 3.5 * k:.1f}" stroke="{fill}" stroke-width="{1.4 * k:.1f}"/>'
+    )
 
 BASE_CSS = f"""
 .pir{{font-family:Pirata,serif;fill:{GOLD}}}
@@ -28,8 +54,8 @@ SHIP = f"""
   <path d="M18,-50 Q40,-34 18,-16 Z" fill="#f3ead6"/>
   <path d="M18,-14 Q42,-4 18,8 Z" fill="#e9dcc0"/>
   <path d="M66,10 L92,-6" stroke="{FOAM}" stroke-width="1.6"/>
-  <path d="M-22,-70 L-44,-64 L-22,-58 Z" fill="{RED}" class="flap"/>
-  <g transform="translate(-26 -44) scale(.32)">{emblem('#3b2a1a', '#f3ead6')}</g>
+  <path d="M-22,-70 L-46,-66 L-22,-58 Z" fill="#111" stroke="{FOAM}" stroke-opacity=".5" stroke-width=".8" class="flap"/>
+  <g transform="translate(-27 -40) scale(.3)">{jolly('#1a1206', '#f3ead6', line='#1a1206')}</g>
   <circle cx="60" cy="2" r="3" fill="#ffd27a"/><circle cx="60" cy="2" r="9" fill="#ffd27a" opacity=".25" class="tw"/>
 </g>"""
 
@@ -57,21 +83,31 @@ def hero() -> str:
         f'<g class="shoot" style="animation-delay:{d}s;animation-duration:{dur}s"><line x1="{x}" y1="{y}" x2="{x + 90}" y2="{y - 34}" stroke="url(#trail)" stroke-width="2" stroke-linecap="round"/></g>'
         for x, y, d, dur in ((380, 70, 0, 7), (700, 40, 3.5, 9), (180, 130, 6, 11))
     )
+    # next island on the horizon, and the Log Pose locked onto it
     lighthouse = f"""
 <g transform="translate(940 300)">
-  <path d="M-46,4 Q-30,-14 0,-16 Q34,-14 50,6 Z" fill="#0b1a2c"/>
-  <g class="beam"><polygon points="0,-104 -340,-150 -340,-58" fill="url(#beam)"/></g>
-  <path d="M-12,-14 L-8,-96 L8,-96 L12,-14 Z" fill="#e8dcc0"/>
-  <path d="M-11,-40 L11,-40 L10,-56 L-10,-56 Z M-9,-72 L9,-72 L8.5,-86 L-8.5,-86 Z" fill="{RED}"/>
-  <rect x="-10" y="-112" width="20" height="16" rx="2" fill="#ffd27a" class="lamp"/>
-  <path d="M-13,-112 L0,-124 L13,-112 Z" fill="#1d2f47"/>
+  <path d="M-60,4 Q-44,-22 -14,-26 Q-4,-48 14,-44 Q30,-40 34,-22 Q52,-14 62,6 Z" fill="#0b1a2c"/>
+  <path d="M10,-44 Q4,-62 12,-70 M14,-44 Q22,-60 30,-62" fill="none" stroke="#0b1a2c" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="-8" cy="-12" r="2" fill="#ffd27a" class="tw"/><circle cx="20" cy="-8" r="2" fill="#ffd27a" class="tw" style="animation-delay:1.3s"/>
+</g>
+<g transform="translate(905 104)">
+  <circle r="70" fill="url(#lpglow)"/>
+  <rect x="-40" y="22" width="80" height="18" rx="7" fill="#5a3a1e" stroke="{GOLD}" stroke-opacity=".6" stroke-width="1.4"/>
+  <path d="M-30,31 h60" stroke="{GOLD}" stroke-opacity=".35" stroke-dasharray="3 4"/>
+  <rect x="-16" y="16" width="32" height="10" rx="3" fill="#b8862a" stroke="#3b220f" stroke-width="1.4"/>
+  <circle r="32" fill="url(#glass)" stroke="{GOLD}" stroke-opacity=".75" stroke-width="2"/>
+  <g class="needle"><path d="M0,-24 L4.5,0 L0,24 L-4.5,0 Z" fill="{RED}"/><path d="M4.5,0 L0,24 L-4.5,0 Z" fill="{FOAM}"/></g>
+  <circle r="3" fill="{GOLD}"/>
+  <ellipse cx="-12" cy="-15" rx="9" ry="4.5" fill="#fff" opacity=".35" transform="rotate(-35 -12 -15)"/>
+  <text y="60" text-anchor="middle" class="sans b muted" font-size="10" letter-spacing="2.5">LOG POSE</text>
 </g>"""
     tag = wrap(TAGLINE, 52)
     body = f"""
 <defs>
   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050b18"/><stop offset=".75" stop-color="{NAVY2}"/></linearGradient>
   <radialGradient id="glow"><stop offset="0" stop-color="#f6e7b8" stop-opacity=".45"/><stop offset="1" stop-color="#f6e7b8" stop-opacity="0"/></radialGradient>
-  <linearGradient id="beam" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".55"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></linearGradient>
+  <radialGradient id="glass" cx=".4" cy=".35"><stop offset="0" stop-color="#bfe9ff" stop-opacity=".55"/><stop offset="1" stop-color="#1c4f7c" stop-opacity=".85"/></radialGradient>
+  <radialGradient id="lpglow"><stop offset="0" stop-color="#9fe7ff" stop-opacity=".22"/><stop offset="1" stop-color="#9fe7ff" stop-opacity="0"/></radialGradient>
   <linearGradient id="trail" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
   <clipPath id="c"><rect width="{W}" height="{H}" rx="16"/></clipPath>
@@ -89,7 +125,7 @@ def hero() -> str:
   {sparks}
 </g>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="{GOLD}" stroke-opacity=".25"/>
-<text x="60" y="94" class="sans b muted" font-size="13" letter-spacing="3">AHOY, I'M</text>
+<text x="60" y="94" class="sans b muted" font-size="13" letter-spacing="3">GRAND LINE ROOKIE</text>
 <text x="60" y="152" class="pir" font-size="66" filter="url(#soft)" opacity=".55">{esc(NAME)}</text>
 <text x="60" y="152" class="pir" font-size="66">{esc(NAME)}</text>
 <text x="62" y="186" class="sans" font-size="17">{esc(ROLE)}  \u00b7  {esc(ORIGIN)}</text>
@@ -106,8 +142,8 @@ def hero() -> str:
 .blink{{animation:bl 1s steps(1) infinite}}@keyframes bl{{50%{{opacity:0}}}}
 .shoot{{opacity:0;animation:sh linear infinite}}
 @keyframes sh{{0%{{opacity:0;transform:translate(0,0)}}3%{{opacity:1}}12%{{opacity:0;transform:translate(-160px,60px)}}100%{{opacity:0;transform:translate(-160px,60px)}}}}
-.beam{{transform-origin:0 -104px;animation:bm 6s ease-in-out infinite alternate}}@keyframes bm{{from{{transform:rotate(-14deg)}}to{{transform:rotate(16deg)}}}}
-.lamp{{animation:lp 2s ease-in-out infinite}}@keyframes lp{{50%{{fill:#fff4cf}}}}
+.needle{{animation:nd 6s ease-in-out infinite}}
+@keyframes nd{{0%,100%{{transform:rotate(-30deg)}}22%{{transform:rotate(70deg)}}38%{{transform:rotate(150deg)}}50%{{transform:rotate(186deg)}}62%,90%{{transform:rotate(170deg)}}}}
 """
     return svg(W, H, body, FONTS, css, f"{NAME}, {ROLE}")
 
@@ -144,7 +180,7 @@ def chest() -> str:
     <path d="M-50,-12 Q0,-38 50,-12" fill="none" stroke="#b8862a" stroke-width="4"/></g>
   {sparkles}
 </g>
-<text x="300" y="46" class="sans b muted" font-size="12" letter-spacing="3">NOW BUILDING</text>
+<text x="300" y="46" class="sans b muted" font-size="12" letter-spacing="3">CURRENT ARC · NOW BUILDING</text>
 <text x="300" y="84" class="pir" font-size="36">Combat Capture</text>
 <text x="300" y="112" class="sans" font-size="14">Flutter app that uses on-device ML to spot sparring rounds and clip them automatically.</text>
 {pills}
@@ -165,25 +201,39 @@ def chest() -> str:
     return svg(W, H, body, FONTS, css, "Now building: Combat Capture")
 
 
-def whale() -> str:
-    """Divider strip: a whale surfaces and spouts while a fish jumps."""
+def sea_king() -> str:
+    """Divider strip: a Sea King rises out of the water, snaps its jaws and sinks while fish flee."""
     W, H = 1000, 120
-    drops = "".join(
-        f'<circle cx="0" cy="0" r="{r}" fill="#9fe7ff" class="drop" style="--dx:{dx}px;--dy:{dy}px;animation-delay:{d}s"/>'
-        for dx, dy, r, d in ((-26, -30, 2.4, 0), (-14, -46, 3, .05), (0, -56, 3.4, .1), (14, -46, 3, .05), (26, -30, 2.4, 0), (-7, -38, 2, .15), (8, -40, 2, .15))
+    SK, FIN, BELLY = "#2b6b73", "#c0504d", "#9fe0d4"
+    bubbles = "".join(
+        f'<circle cx="{x}" cy="0" r="{r}" fill="none" stroke="#9fe7ff" stroke-opacity=".7" class="bub" style="animation-delay:{d}s"/>'
+        for x, r, d in ((-40, 2.4, 0), (-18, 3, .5), (8, 2, 1.1), (-110, 2.2, .3), (-74, 2.6, .9), (30, 2.2, 1.6))
+    )
+    hump = lambda x0, x1, h: (  # noqa: E731
+        f'<path d="M{x0},8 Q{(x0 + x1) / 2},{-h} {x1},8 Z" fill="{SK}"/>'
+        + "".join(
+            f'<path d="M{x0 + (x1 - x0) * t - 4:.0f},{-h * 0.48 * (1 - (2 * t - 1) ** 2) + 2:.0f} l4,-11 l4,11 z" fill="{FIN}"/>'
+            for t in (0.3, 0.5, 0.7)
+        )
     )
     body = f"""<defs><clipPath id="c"><rect width="{W}" height="{H}" rx="16"/></clipPath>
   <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071226"/><stop offset="1" stop-color="{NAVY2}"/></linearGradient></defs>
 <g clip-path="url(#c)">
   <rect width="{W}" height="{H}" fill="url(#bg)"/>
   {stars(24, W, 60, seed=5)}
-  <g transform="translate(300 84)"><g class="whale">
-    <path d="M-80,10 Q-70,-26 -10,-28 Q50,-30 72,-6 Q86,4 96,-14 L104,-24 Q104,-2 92,12 Q60,18 -80,10 Z" fill="#2a5684"/>
-    <path d="M-70,6 Q-10,14 70,4" fill="none" stroke="#9fc4e8" stroke-opacity=".5" stroke-width="2"/>
-    <circle cx="-50" cy="-8" r="3" fill="#0a1628"/>
-    <g transform="translate(-34 -26)">{drops}</g>
+  <g transform="translate(300 100)"><g class="sk">
+    <g class="coil">{hump(-182, -122, 74)}{hump(-112, -62, 60)}</g>
+    <g class="head">
+      <path d="M-14,-58 L-32,-80 L-4,-66 Z M2,-70 L-8,-92 L14,-72 Z M18,-73 L16,-94 L30,-71 Z" fill="{FIN}"/>
+      <path d="M-34,12 Q-40,-36 -14,-58 Q8,-76 44,-70 Q70,-64 84,-50 Q90,-42 82,-38 L56,-40 Q70,-32 68,-24 Q50,-20 36,-28 Q24,-16 22,12 Z" fill="{SK}"/>
+      <path d="M-22,8 Q-28,-28 -4,-50" fill="none" stroke="{BELLY}" stroke-opacity=".45" stroke-width="2.4" stroke-dasharray="5 4"/>
+      <path d="M60,-40 l3,5 l3,-5 Z M68,-40 l3,5 l3,-5 Z M76,-39 l2.5,4 l2.5,-4 Z M46,-27 l3,-5 l3,5 Z M56,-25 l3,-5 l3,5 Z" fill="#f3ead6"/>
+      <circle cx="44" cy="-57" r="5" fill="{GOLD}" class="eye"/><rect x="43" y="-61" width="2" height="8" rx="1" fill="#0a1628"/>
+    </g>
+    <g transform="translate(0 -4)">{bubbles}</g>
   </g></g>
-  <g transform="translate(700 92)"><g class="fish"><path d="M0,0 Q10,-8 20,0 Q10,8 0,0 Z M20,0 L28,-6 L28,6 Z" fill="{GOLD}"/></g></g>
+  <g transform="translate(680 92)"><g class="fish"><path d="M0,0 Q10,-8 20,0 Q10,8 0,0 Z M20,0 L28,-6 L28,6 Z" fill="{GOLD}"/></g></g>
+  <g transform="translate(720 96)"><g class="fish" style="animation-delay:.35s"><path d="M0,0 Q8,-6 16,0 Q8,6 0,0 Z M16,0 L22,-5 L22,5 Z" fill="#7fd6d6"/></g></g>
   <path d="{wave_path(86, 6, 250, 1500, H)}" fill="#123a63" class="wv" style="animation-duration:10s"/>
   <path d="{wave_path(98, 7, 250, 1500, H)}" fill="#16477a" class="wv" style="animation-duration:7s"/>
   <path d="{wave_path(98, 7, 250, 1500, H)}" fill="none" stroke="#5ff3e0" stroke-opacity=".35" class="wv" style="animation-duration:7s"/>
@@ -191,52 +241,81 @@ def whale() -> str:
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="{GOLD}" stroke-opacity=".2"/>"""
     css = BASE_CSS + """
 .wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}
-.whale{animation:wh 8s ease-in-out infinite}
-@keyframes wh{0%,100%{transform:translateY(46px)}30%,60%{transform:translateY(0)}}
-.drop{opacity:0;animation:sp 8s ease-out infinite}
-@keyframes sp{0%,32%{transform:translate(0,0);opacity:0}36%{opacity:1}46%{transform:translate(var(--dx),var(--dy));opacity:1}56%,100%{transform:translate(calc(var(--dx)*1.6),-6px);opacity:0}}
+.sk{animation:sk 9s ease-in-out infinite}
+@keyframes sk{0%,100%{transform:translateY(96px)}28%,64%{transform:translateY(0)}}
+.coil{animation:co 9s ease-in-out infinite}@keyframes co{0%,100%{transform:translateY(20px)}40%{transform:translateY(-3px)}55%{transform:translateY(4px)}}
+.head{transform-origin:0 10px;animation:hd 9s ease-in-out infinite}
+@keyframes hd{0%,30%{transform:rotate(0)}38%{transform:rotate(-7deg)}44%{transform:rotate(3deg)}50%{transform:rotate(-5deg)}58%,100%{transform:rotate(0)}}
+.eye{animation:ey 9s ease-in-out infinite}@keyframes ey{0%,30%,62%,100%{fill:#f4c95d}40%,52%{fill:#ffe9a8}}
+.bub{opacity:0;animation:bb 3s ease-out infinite}
+@keyframes bb{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-34px);opacity:0}}
 .fish{animation:fi 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 @keyframes fi{0%,55%{transform:translate(0,30px) rotate(-50deg)}68%{transform:translate(40px,-40px) rotate(0)}80%{transform:translate(80px,30px) rotate(50deg)}100%{transform:translate(80px,30px) rotate(50deg)}}
 """
-    return svg(W, H, body, FONTS, css, "Divider")
+    return svg(W, H, body, FONTS, css, "A Sea King rising out of the water")
 
 
-def bottle() -> str:
-    """Contact card: a message in a bottle bobbing on the waves."""
+def den_den_mushi() -> str:
+    """Contact card: a Den Den Mushi ringing on a rock, receiver rattling."""
     W, H = 1000, 180
+    SKIN, SKIN_D, SHELL, SHELL_L = "#e2a77c", "#a8714c", "#f3ead6", "#b8a37f"
+    rings = "".join(
+        f'<path d="M{8 + k * 9},{-10 - k * 6} q{6 + k * 3},{10 + k * 6} 0,{20 + k * 12}" fill="none" stroke="{GOLD}" stroke-width="2.4" stroke-linecap="round" class="ring" style="animation-delay:{k * 0.18:.2f}s"/>'
+        for k in range(3)
+    )
     body = f"""<defs><clipPath id="c"><rect width="{W}" height="{H}" rx="16"/></clipPath></defs>
 <g clip-path="url(#c)">
   <rect width="{W}" height="{H}" fill="{CARD}"/>
   {stars(30, W, 90, seed=8)}
-  <g transform="translate(170 118)"><g class="bot">
-    <path d="M-60,-14 Q-62,-30 -40,-30 L30,-30 Q44,-30 50,-20 L72,-16 L72,-2 L50,2 Q44,12 30,12 L-40,12 Q-62,12 -60,-4 Z" fill="#5fb3a4" fill-opacity=".35" stroke="#9fe0d4" stroke-width="2"/>
-    <rect x="72" y="-17" width="12" height="16" rx="2" fill="#8a5a33"/>
-    <rect x="-34" y="-20" width="58" height="22" rx="4" fill="#f3ead6" transform="rotate(-6)"/>
-    <path d="M-28,-14 h40 M-28,-8 h32" stroke="#b8a37f" stroke-width="1.5" transform="rotate(-6)"/>
-    <path d="M-50,-24 Q-30,-28 -10,-26" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/>
+  <path d="M60,150 Q80,116 130,112 Q200,104 250,118 Q290,128 300,150 Z" fill="#0b1a2c"/>
+  <g transform="translate(150 116)"><g class="ddm">
+    <path d="M-66,8 Q-72,-4 -52,-6 L30,-6 Q40,-8 42,-22 L44,-48 Q46,-60 58,-60 Q70,-60 70,-48 L68,-20 Q66,2 50,8 Z" fill="{SKIN}" stroke="{SKIN_D}" stroke-width="1.6"/>
+    <path d="M52,-58 L46,-80 M64,-58 L70,-80" stroke="{SKIN}" stroke-width="4.5" stroke-linecap="round"/>
+    <g class="eyes"><circle cx="46" cy="-82" r="5.5" fill="#fff" stroke="{SKIN_D}" stroke-width="1.2"/><circle cx="70" cy="-82" r="5.5" fill="#fff" stroke="{SKIN_D}" stroke-width="1.2"/>
+      <circle cx="47" cy="-82" r="2.6" fill="#0a1628"/><circle cx="71" cy="-82" r="2.6" fill="#0a1628"/></g>
+    <path d="M52,-36 Q58,-30 64,-36" fill="none" stroke="#5a3320" stroke-width="2" stroke-linecap="round" class="mouth"/>
+    <circle cx="-14" cy="-32" r="32" fill="{SHELL}" stroke="{SHELL_L}" stroke-width="2"/>
+    <path d="M-14,-32 q8,-2 8,6 q0,12 -14,12 q-18,0 -18,-18 q0,-24 26,-24 q30,0 30,28" fill="none" stroke="{SHELL_L}" stroke-width="2.2"/>
+    <circle cx="-30" cy="-22" r="7" fill="{GOLD}" stroke="#b8862a" stroke-width="1.2"/>
+    <circle cx="-30" cy="-26" r="1.2" fill="#0a1628"/><circle cx="-26" cy="-22" r="1.2" fill="#0a1628"/><circle cx="-30" cy="-18" r="1.2" fill="#0a1628"/><circle cx="-34" cy="-22" r="1.2" fill="#0a1628"/>
+    <path d="M-48,-56 q-10,6 -4,12 q6,6 -2,12 q-6,6 2,10" fill="none" stroke="#1d1d1d" stroke-width="1.8"/>
+    <g class="rcv">
+      <path d="M-40,-68 Q-14,-84 12,-68" fill="none" stroke="#1d1d1d" stroke-width="7" stroke-linecap="round"/>
+      <path d="M-40,-68 Q-14,-84 12,-68" fill="none" stroke="{GOLD}" stroke-opacity=".35" stroke-width="1"/>
+      <rect x="-52" y="-72" width="20" height="11" rx="5" fill="#1d1d1d" stroke="{GOLD}" stroke-opacity=".5"/>
+      <rect x="4" y="-72" width="20" height="11" rx="5" fill="#1d1d1d" stroke="{GOLD}" stroke-opacity=".5"/>
+    </g>
+    <g transform="translate(76 -50)">{rings}</g>
   </g></g>
+  <text x="196" y="22" class="pir ringtxt" font-size="15">puru puru puru...</text>
   <path d="{wave_path(130, 7, 250, 1500, H)}" fill="#123a63" class="wv" style="animation-duration:9s"/>
   <path d="{wave_path(146, 8, 250, 1500, H)}" fill="#16477a" class="wv" style="animation-duration:6s"/>
   <path d="{wave_path(146, 8, 250, 1500, H)}" fill="none" stroke="#5ff3e0" stroke-opacity=".35" class="wv" style="animation-duration:6s"/>
 </g>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="{GOLD}" stroke-opacity=".25"/>
 <text x="340" y="48" class="sans b muted" font-size="12" letter-spacing="3">SEND A MESSAGE</text>
-<text x="340" y="86" class="pir" font-size="34">Message in a bottle</text>
+<text x="340" y="86" class="pir" font-size="34">Ring the Den Den Mushi</text>
 <text x="340" y="112" class="sans" font-size="15">zhengyaowong.cs@gmail.com  \u00b7  open to Summer 2027 SWE internships</text>
 <g transform="translate({W - 200} 30)"><rect width="160" height="40" rx="20" fill="{GOLD}"/>
-  <text x="80" y="25" text-anchor="middle" class="sans b" font-size="13" letter-spacing="1.5" style="fill:#0a1628">WRITE ME \u2192</text></g>"""
+  <text x="80" y="25" text-anchor="middle" class="sans b" font-size="13" letter-spacing="1.5" style="fill:#0a1628">EMAIL ME \u2192</text></g>"""
     css = BASE_CSS + """
 .wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}
-.bot{animation:bt 4s ease-in-out infinite}
-@keyframes bt{0%,100%{transform:translate(0,0) rotate(-6deg)}50%{transform:translate(10px,8px) rotate(5deg)}}
+.rcv{transform-box:fill-box;transform-origin:center bottom;animation:rc 2.4s ease-in-out infinite}
+@keyframes rc{0%,8%,16%,24%,32%{transform:translateY(0) rotate(0)}4%,20%{transform:translateY(-4px) rotate(-4deg)}12%,28%{transform:translateY(-4px) rotate(4deg)}40%,100%{transform:translateY(0) rotate(0)}}
+.ring{opacity:0;animation:rg 2.4s ease-out infinite}
+@keyframes rg{0%{opacity:0}6%{opacity:1}36%{opacity:0}100%{opacity:0}}
+.ringtxt{animation:rt 2.4s ease-in-out infinite}@keyframes rt{0%,40%{opacity:.95}60%,100%{opacity:.25}}
+.eyes{transform-box:fill-box;transform-origin:center bottom;animation:ew 4.8s ease-in-out infinite}
+@keyframes ew{0%,40%,100%{transform:scaleY(1)}44%{transform:scaleY(.1)}48%{transform:scaleY(1)}}
+.ddm{animation:dd 2.4s ease-in-out infinite}@keyframes dd{0%,100%{transform:translateY(0)}50%{transform:translateY(1.5px)}}
 """
-    return svg(W, H, body, FONTS, css, "Message in a bottle: zhengyaowong.cs@gmail.com")
+    return svg(W, H, body, FONTS, css, "Den Den Mushi: zhengyaowong.cs@gmail.com")
 
 
 def nav(label: str) -> str:
     W, H = 150, 46
     body = f"""<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="23" fill="{CARD}" stroke="{GOLD}" stroke-opacity=".55" stroke-width="1.4"/>
-<path d="M22,17 l5,6 l-5,6 l-5,-6 z" fill="{GOLD}"/>
+<g transform="translate(23 33) scale(.3)">{straw_hat()}</g>
 <text x="{W / 2 + 8}" y="28" text-anchor="middle" class="sans b gold" font-size="13" letter-spacing="1.6">{esc(label.upper())}</text>"""
     return svg(W, H, body, FONTS, BASE_CSS, label)
 
@@ -246,15 +325,15 @@ def header(num: str, title: str, sub: str) -> str:
     tw = 40 + len(title) * 17
     body = f"""<defs><linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="{GOLD}" stop-opacity=".7"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/></linearGradient></defs>
 <text x="40" y="28" class="sans b muted" font-size="12" letter-spacing="3">{esc(num)}  ·  {esc(sub.upper())}</text>
-<path d="M50,52 l4,-12 l4,12 l12,4 l-12,4 l-4,12 l-4,-12 l-12,-4 z" fill="{GOLD}" class="spin"/>
+<g transform="translate(50 70) scale(.62)"><g class="tilt">{straw_hat()}</g></g>
 <text x="80" y="68" class="pir" font-size="36">{esc(title)}</text>
 <rect x="{80 + tw}" y="56" width="{W - 120 - tw}" height="1.5" fill="url(#ln)"/>"""
-    css = BASE_CSS + ".spin{transform-box:fill-box;transform-origin:center;animation:sp 12s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}"
+    css = BASE_CSS + ".tilt{transform-origin:0 -16px;animation:tl 5s ease-in-out infinite}@keyframes tl{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(6deg)}}"
     return svg(W, H, body, FONTS, css, title)
 
 
 def about() -> str:
-    W, H = 1000, 330
+    W, H = 1000, 352
     K, KEY, STR, P = "#c792ea", "#8fc6ff", GOLD, MUTED
     rows = [
         ("name", '"Zheng Yao Wong"'),
@@ -265,6 +344,7 @@ def about() -> str:
         ("building", '"Combat Capture"'),
         ("seeking", '"Summer 2027 SWE internship"'),
         ("rule", '"own every line before it ships"'),
+        ("dream", '"King of the Devs"'),
     ]
     lines = [f'<tspan fill="{K}">const</tspan> <tspan fill="{FOAM}">captain</tspan> <tspan fill="{P}">= {{</tspan>']
     for k, v in rows:
@@ -279,8 +359,8 @@ def about() -> str:
 <circle cx="28" cy="23" r="6" fill="{RED}"/><circle cx="48" cy="23" r="6" fill="{GOLD}"/><circle cx="68" cy="23" r="6" fill="{TEAL}"/>
 <text x="500" y="28" text-anchor="middle" class="mono muted" font-size="13">captain.ts</text>
 {code}
-<rect x="112" y="{92 + 9 * 22 + 4}" width="9" height="16" fill="{GOLD}" class="blink"/>
-<g transform="translate(820 190) scale(2.4)" opacity=".1">{emblem(GOLD, '#0b1a30')}</g>"""
+<rect x="112" y="{92 + 10 * 22 + 4}" width="9" height="16" fill="{GOLD}" class="blink"/>
+<g transform="translate(820 214) scale(2.4)" opacity=".12">{jolly(GOLD, '#0b1a30', line='#0b1a30')}</g>"""
     css = BASE_CSS + ".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
     return svg(W, H, body, FONTS, css, "About")
 
@@ -300,14 +380,18 @@ def card(p: dict) -> str:
     )
     y0 = 124 if p["award"] else 108
     body = f"""<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#112645"/><stop offset="1" stop-color="{CARD}"/></linearGradient></defs>
-<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="url(#cg)" stroke="{GOLD}" stroke-opacity=".22"/>
-<text x="28" y="40" class="sans b muted" font-size="11" letter-spacing="2.2">{esc(p['kind'].upper())}</text>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="url(#cg)" stroke="{GOLD}" stroke-opacity=".35"/>
+<rect x="8" y="8" width="{W - 16}" height="{H - 16}" rx="11" fill="none" stroke="{GOLD}" stroke-opacity=".14"/>
+<g transform="translate({W - 74} 120) rotate(12) scale(.5)" opacity=".1">{jolly(GOLD, CARD, line=CARD)}</g>
+<text x="28" y="40" font-size="19" letter-spacing="7" style="font-family:Fell,serif;fill:{GOLD}">WANTED</text>
+<text x="{W - 28}" y="38" text-anchor="end" class="sans b muted" font-size="10.5" letter-spacing="2">{esc(p['kind'].upper())}</text>
 <text x="28" y="76" class="pir" font-size="34">{esc(p['name'])}</text>
 {award}
 {''.join(f'<text x="28" y="{y0 + i * 21}" class="sans" font-size="14">{esc(l)}</text>' for i, l in enumerate(desc))}
 {tags}
-<text x="{W - 28}" y="248" text-anchor="end" class="sans b gold" font-size="12" letter-spacing="1.5">SET SAIL →</text>"""
-    return svg(W, H, body, FONTS, BASE_CSS, p["name"])
+{berry(28, 252)}<text x="44" y="252" font-size="20" style="font-family:Fell,serif;fill:{GOLD}">{esc(p['bounty'])} -</text>
+<text x="{W - 28}" y="250" text-anchor="end" class="sans b gold" font-size="12" letter-spacing="1.5">SET SAIL →</text>"""
+    return svg(W, H, body, POSTER_FONTS, BASE_CSS, p["name"])
 
 
 def footer() -> str:
@@ -319,16 +403,16 @@ def footer() -> str:
   <path d="{wave_path(112, 8, 250, 1500, H)}" fill="#0f2f52" class="wv" style="animation-duration:12s"/>
   <path d="{wave_path(126, 9, 250, 1500, H)}" fill="#16477a" class="wv" style="animation-duration:8s"/>
 </g>
-<text x="500" y="56" text-anchor="middle" class="pir" font-size="30">Fair winds and following seas</text>
+<text x="500" y="56" text-anchor="middle" class="pir" font-size="30">The One Piece is real!</text>
 <text x="500" y="84" text-anchor="middle" class="sans muted" font-size="13">zhengyaowong.cs@gmail.com  ·  zhengyaoportfolio.vercel.app</text>"""
     css = BASE_CSS + ".wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}"
     return svg(W, H, body, FONTS, css, "Footer")
 
 
 HEADERS = {
-    "projects": ("01", "Voyages", "things I've built and shipped"),
-    "stack": ("02", "Cargo Hold", "what I build with"),
-    "log": ("03", "Ship's Log", "the last twelve months"),
+    "projects": ("01", "Bounties", "things I've built and shipped"),
+    "stack": ("02", "Devil Fruits", "what I build with"),
+    "log": ("03", "Log Pose", "the last twelve months"),
 }
 
 
@@ -337,8 +421,8 @@ def build() -> None:
     write(THEME, "about", about())
     write(THEME, "footer", footer())
     write(THEME, "chest", chest())
-    write(THEME, "whale", whale())
-    write(THEME, "bottle", bottle())
+    write(THEME, "sea-king", sea_king())
+    write(THEME, "den-den-mushi", den_den_mushi())
     for label, _ in NAV:
         write(THEME, f"nav-{label.lower()}", nav(label))
     for key, (n, t, s) in HEADERS.items():
