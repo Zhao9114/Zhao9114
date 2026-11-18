@@ -47,15 +47,17 @@ SHIP = f"""
   <path d="M-62,10 L66,10 L52,36 Q0,44 -50,36 Z" fill="#4a2c16" stroke="{GOLD}" stroke-width="1.6"/>
   <path d="M-58,18 L60,18" stroke="{GOLD}" stroke-opacity=".5"/>
   <circle cx="-30" cy="26" r="2.4" fill="{GOLD}"/><circle cx="-8" cy="27" r="2.4" fill="{GOLD}"/><circle cx="14" cy="27" r="2.4" fill="{GOLD}"/><circle cx="36" cy="26" r="2.4" fill="{GOLD}"/>
-  <line x1="-22" y1="10" x2="-22" y2="-70" stroke="{FOAM}" stroke-width="2.4"/>
+  <line x1="-22" y1="10" x2="-22" y2="-92" stroke="{FOAM}" stroke-width="2.4"/>
   <line x1="18" y1="10" x2="18" y2="-56" stroke="{FOAM}" stroke-width="2.2"/>
   <path d="M-22,-64 Q6,-44 -22,-22 Z" fill="#f3ead6"/>
   <path d="M-22,-20 Q10,-6 -22,6 Z" fill="#e9dcc0"/>
   <path d="M18,-50 Q40,-34 18,-16 Z" fill="#f3ead6"/>
   <path d="M18,-14 Q42,-4 18,8 Z" fill="#e9dcc0"/>
   <path d="M66,10 L92,-6" stroke="{FOAM}" stroke-width="1.6"/>
-  <path d="M-22,-70 L-46,-66 L-22,-58 Z" fill="#111" stroke="{FOAM}" stroke-opacity=".5" stroke-width=".8" class="flap"/>
-  <g transform="translate(-27 -40) scale(.3)">{jolly('#1a1206', '#f3ead6', line='#1a1206')}</g>
+  <g class="flap">
+    <path d="M-22,-92 Q-38,-96 -56,-90 L-56,-68 Q-38,-73 -22,-70 Z" fill="#111" stroke="{FOAM}" stroke-opacity=".55" stroke-width=".9"/>
+    <g transform="translate(-39.5 -77) scale(.19)">{jolly('#f3ead6', '#111', line='#111')}</g>
+  </g>
   <circle cx="60" cy="2" r="3" fill="#ffd27a"/><circle cx="60" cy="2" r="9" fill="#ffd27a" opacity=".25" class="tw"/>
 </g>"""
 
@@ -119,7 +121,12 @@ def hero() -> str:
   <circle cx="{MX}" cy="{MY}" r="100" fill="url(#glow)"/>
   <circle cx="{MX}" cy="{MY}" r="32" fill="#f6e7b8"/>
   <circle cx="{MX - 11}" cy="{MY - 7}" r="6" fill="#e6d29a" opacity=".6"/><circle cx="{MX + 10}" cy="{MY + 11}" r="4.5" fill="#e6d29a" opacity=".6"/>
+  <g transform="translate(1100 64)"><g class="cloud" opacity=".22"><ellipse cx="0" cy="0" rx="70" ry="9" fill="#cfe3ff"/><ellipse cx="30" cy="-6" rx="40" ry="8" fill="#cfe3ff"/></g></g>
   {lighthouse}
+  <g transform="translate(1060 70)"><g class="gulls">
+    <path d="M0,0 q6,-6 12,0 q6,-6 12,0" class="gull" fill="none" stroke="{FOAM}" stroke-width="2" stroke-linecap="round"/>
+    <path d="M30,-14 q5,-5 10,0 q5,-5 10,0" class="gull" style="animation-delay:.2s" fill="none" stroke="{FOAM}" stroke-width="1.8" stroke-linecap="round"/>
+  </g></g>
   {waves}
   {shimmer}
   {sparks}
@@ -138,10 +145,13 @@ def hero() -> str:
 .glow{{animation-name:dr,gl}}@keyframes gl{{0%,100%{{stroke-opacity:.15}}50%{{stroke-opacity:.6}}}}
 .bob{{animation:bob 5s ease-in-out infinite;transform-origin:0 20px}}
 @keyframes bob{{0%,100%{{transform:translateY(0) rotate(-2.5deg)}}50%{{transform:translateY(7px) rotate(2.5deg)}}}}
-.flap{{transform-box:fill-box;transform-origin:right center;animation:fl 1s ease-in-out infinite alternate}}@keyframes fl{{to{{transform:scaleX(.75)}}}}
+.flap{{transform-box:fill-box;transform-origin:right center;animation:fl 1s ease-in-out infinite alternate}}@keyframes fl{{to{{transform:scaleX(.92) skewY(-3deg)}}}}
 .blink{{animation:bl 1s steps(1) infinite}}@keyframes bl{{50%{{opacity:0}}}}
 .shoot{{opacity:0;animation:sh linear infinite}}
 @keyframes sh{{0%{{opacity:0;transform:translate(0,0)}}3%{{opacity:1}}12%{{opacity:0;transform:translate(-160px,60px)}}100%{{opacity:0;transform:translate(-160px,60px)}}}}
+.cloud{{animation:cld 38s linear -24s infinite}}@keyframes cld{{to{{transform:translateX(-1250px)}}}}
+.gulls{{animation:gls 24s linear -15s infinite}}@keyframes gls{{to{{transform:translate(-1140px,-30px)}}}}
+.gull{{transform-box:fill-box;transform-origin:center;animation:gfl .5s ease-in-out infinite alternate}}@keyframes gfl{{to{{transform:scaleY(.35)}}}}
 .needle{{animation:nd 6s ease-in-out infinite}}
 @keyframes nd{{0%,100%{{transform:rotate(-30deg)}}22%{{transform:rotate(70deg)}}38%{{transform:rotate(150deg)}}50%{{transform:rotate(186deg)}}62%,90%{{transform:rotate(170deg)}}}}
 """
@@ -313,23 +323,30 @@ def den_den_mushi() -> str:
     return svg(W, H, body, FONTS, css, "Den Den Mushi: zhengyaowong.cs@gmail.com")
 
 
-def nav(label: str) -> str:
+def nav(label: str, idx: int = 0) -> str:
     W, H = 150, 46
-    body = f"""<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="23" fill="{CARD}" stroke="{GOLD}" stroke-opacity=".55" stroke-width="1.4"/>
+    body = f"""<defs><clipPath id="nc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="23"/></clipPath>
+  <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff1bf" stop-opacity="0"/><stop offset=".5" stop-color="#fff1bf" stop-opacity=".28"/><stop offset="1" stop-color="#fff1bf" stop-opacity="0"/></linearGradient></defs>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="23" fill="{CARD}" stroke="{GOLD}" stroke-opacity=".55" stroke-width="1.4"/>
+<g clip-path="url(#nc)"><rect x="-50" y="-10" width="34" height="{H + 20}" fill="url(#sh)" class="shine" style="animation-delay:{idx * 0.22:.2f}s"/></g>
 <g transform="translate(23 33) scale(.3)">{straw_hat()}</g>
 <text x="{W / 2 + 8}" y="28" text-anchor="middle" class="sans b gold" font-size="13" letter-spacing="1.6">{esc(label.upper())}</text>"""
-    return svg(W, H, body, FONTS, BASE_CSS, label)
+    css = BASE_CSS + ".shine{animation:shn 7s ease-in-out infinite}@keyframes shn{0%{transform:translateX(0) skewX(-20deg)}16%,100%{transform:translateX(250px) skewX(-20deg)}}"
+    return svg(W, H, body, FONTS, css, label)
 
 
 def header(num: str, title: str, sub: str) -> str:
     W, H = 1000, 86
     tw = 40 + len(title) * 17
-    body = f"""<defs><linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="{GOLD}" stop-opacity=".7"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/></linearGradient></defs>
+    body = f"""<defs><linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="{GOLD}" stop-opacity=".7"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff1bf" stop-opacity="0"/><stop offset=".8" stop-color="#fff1bf"/><stop offset="1" stop-color="#fff1bf" stop-opacity="0"/></linearGradient></defs>
 <text x="40" y="28" class="sans b muted" font-size="12" letter-spacing="3">{esc(num)}  ·  {esc(sub.upper())}</text>
 <g transform="translate(50 70) scale(.62)"><g class="tilt">{straw_hat()}</g></g>
 <text x="80" y="68" class="pir" font-size="36">{esc(title)}</text>
-<rect x="{80 + tw}" y="56" width="{W - 120 - tw}" height="1.5" fill="url(#ln)"/>"""
-    css = BASE_CSS + ".tilt{transform-origin:0 -16px;animation:tl 5s ease-in-out infinite}@keyframes tl{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(6deg)}}"
+<rect x="{80 + tw}" y="56" width="{W - 120 - tw}" height="1.5" fill="url(#ln)"/>
+<clipPath id="lc"><rect x="{80 + tw}" y="50" width="{W - 120 - tw}" height="14"/></clipPath>
+<g clip-path="url(#lc)"><rect x="{80 + tw - 90}" y="55" width="90" height="3.5" rx="1.75" fill="url(#gl)" class="glint" style="--run:{W - 120 - tw + 90}px"/></g>"""
+    css = BASE_CSS + ".glint{animation:gli 5s ease-in-out infinite}@keyframes gli{0%{transform:translateX(0);opacity:0}8%{opacity:1}55%{transform:translateX(var(--run));opacity:.9}56%,100%{transform:translateX(var(--run));opacity:0}}" + ".tilt{transform-origin:0 -16px;animation:tl 5s ease-in-out infinite}@keyframes tl{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(6deg)}}"
     return svg(W, H, body, FONTS, css, title)
 
 
@@ -351,7 +368,7 @@ def about() -> str:
         lines.append(f'  <tspan fill="{KEY}">{k}</tspan><tspan fill="{P}">:</tspan> <tspan fill="{STR}">{esc(v)}</tspan><tspan fill="{P}">,</tspan>')
     lines.append(f'<tspan fill="{P}">}};</tspan>')
     code = "".join(
-        f'<text x="64" y="{92 + i * 22}" class="mono" font-size="15" xml:space="preserve"><tspan fill="#3d5878">{i + 1:>2}</tspan>   {l}</text>'
+        f'<text x="64" y="{92 + i * 22}" class="mono ln" style="animation-delay:{0.3 + i * 0.16:.2f}s" font-size="15" xml:space="preserve"><tspan fill="#3d5878">{i + 1:>2}</tspan>   {l}</text>'
         for i, l in enumerate(lines)
     )
     body = f"""<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="#0b1a30" stroke="{GOLD}" stroke-opacity=".22"/>
@@ -361,7 +378,7 @@ def about() -> str:
 {code}
 <rect x="112" y="{92 + 9 * 22 + 4}" width="9" height="16" fill="{GOLD}" class="blink"/>
 <g transform="translate(820 190) scale(2.4)" opacity=".12">{jolly(GOLD, '#0b1a30', line='#0b1a30')}</g>"""
-    css = BASE_CSS + ".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
+    css = BASE_CSS + ".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}" + ".ln{animation:ln .45s ease-out backwards}@keyframes ln{from{opacity:0;transform:translateX(-10px)}}"
     return svg(W, H, body, FONTS, css, "About")
 
 
@@ -379,7 +396,10 @@ def card(p: dict) -> str:
         else ""
     )
     y0 = 124 if p["award"] else 108
-    body = f"""<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#112645"/><stop offset="1" stop-color="{CARD}"/></linearGradient></defs>
+    k = PROJECTS.index(p)
+    body = f"""<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#112645"/><stop offset="1" stop-color="{CARD}"/></linearGradient>
+  <linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#fff1bf" stop-opacity="0"/><stop offset=".5" stop-color="#fff1bf" stop-opacity=".07"/><stop offset="1" stop-color="#fff1bf" stop-opacity="0"/></linearGradient>
+  <clipPath id="cc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16"/></clipPath></defs>
 <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="url(#cg)" stroke="{GOLD}" stroke-opacity=".35"/>
 <rect x="8" y="8" width="{W - 16}" height="{H - 16}" rx="11" fill="none" stroke="{GOLD}" stroke-opacity=".14"/>
 <g transform="translate({W - 74} 120) rotate(12) scale(.5)" opacity=".1">{jolly(GOLD, CARD, line=CARD)}</g>
@@ -388,9 +408,12 @@ def card(p: dict) -> str:
 {award}
 {''.join(f'<text x="28" y="{y0 + i * 21}" class="sans" font-size="14">{esc(l)}</text>' for i, l in enumerate(desc))}
 {tags}
-{berry(28, 252)}<text x="44" y="252" font-size="20" style="font-family:Fell,serif;fill:{GOLD}">{esc(p['bounty'])} -</text>
+<g clip-path="url(#cc)"><rect x="-160" y="-40" width="120" height="{H + 80}" fill="url(#sw)" class="sweep" style="animation-delay:{k * 1.6:.1f}s"/></g>
+{berry(28, 252)}<path d="M36,226 l1.6,-5 l1.6,5 l5,1.6 l-5,1.6 l-1.6,5 l-1.6,-5 l-5,-1.6 z" fill="#fff1bf" class="twk" style="animation-delay:{k * 0.7:.1f}s"/><text x="44" y="252" font-size="20" style="font-family:Fell,serif;fill:{GOLD}">{esc(p['bounty'])} -</text>
 <text x="{W - 28}" y="250" text-anchor="end" class="sans b gold" font-size="12" letter-spacing="1.5">SET SAIL →</text>"""
-    return svg(W, H, body, POSTER_FONTS, BASE_CSS, p["name"])
+    css = BASE_CSS + (".sweep{animation:swp 8s ease-in-out infinite}@keyframes swp{0%{transform:translateX(0) skewX(-18deg)}30%,100%{transform:translateX(800px) skewX(-18deg)}}"
+        ".twk{transform-box:fill-box;transform-origin:center;animation:tk 3.2s ease-in-out infinite}@keyframes tk{0%,70%,100%{transform:scale(0);opacity:0}82%{transform:scale(1) rotate(45deg);opacity:1}}")
+    return svg(W, H, body, POSTER_FONTS, css, p["name"])
 
 
 def footer() -> str:
@@ -400,11 +423,15 @@ def footer() -> str:
   <rect width="{W}" height="{H}" fill="{NAVY}"/>
   {stars(30, W, 70, seed=11)}
   <path d="{wave_path(112, 8, 250, 1500, H)}" fill="#0f2f52" class="wv" style="animation-duration:12s"/>
+  <g transform="translate(-80 121)"><g class="sail"><g transform="scale(.3)"><g class="rock">{SHIP}</g></g></g></g>
   <path d="{wave_path(126, 9, 250, 1500, H)}" fill="#16477a" class="wv" style="animation-duration:8s"/>
 </g>
 <text x="500" y="56" text-anchor="middle" class="pir" font-size="30">People’s dreams... never end!</text>
 <text x="500" y="84" text-anchor="middle" class="sans muted" font-size="13">zhengyaowong.cs@gmail.com  ·  zhengyaoportfolio.vercel.app</text>"""
-    css = BASE_CSS + ".wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}"
+    css = BASE_CSS + (".wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}"
+        ".sail{animation:sl 46s linear -18s infinite}@keyframes sl{to{transform:translateX(1160px)}}"
+        ".rock{animation:rk 4s ease-in-out infinite}@keyframes rk{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg) translateY(4px)}}"
+        ".flap{transform-box:fill-box;transform-origin:right center;animation:fl 1s ease-in-out infinite alternate}@keyframes fl{to{transform:scaleX(.92) skewY(-3deg)}}")
     return svg(W, H, body, FONTS, css, "Footer")
 
 
@@ -422,8 +449,8 @@ def build() -> None:
     write(THEME, "chest", chest())
     write(THEME, "sea-king", sea_king())
     write(THEME, "den-den-mushi", den_den_mushi())
-    for label, _ in NAV:
-        write(THEME, f"nav-{label.lower()}", nav(label))
+    for i, (label, _) in enumerate(NAV):
+        write(THEME, f"nav-{label.lower()}", nav(label, i))
     for key, (n, t, s) in HEADERS.items():
         write(THEME, f"h-{key}", header(n, t, s))
     for p in PROJECTS:

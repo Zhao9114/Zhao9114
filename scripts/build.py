@@ -10,7 +10,7 @@ CONTRIB = {"beach": "beach", "wanted": "map", "voyage": "sea", "manga": "manga"}
 SKILL_THEME = {"beach": "light", "wanted": "light", "voyage": "dark", "manga": "light"}
 RAW = "https://raw.githubusercontent.com/Zhao9114/Zhao9114/output"
 # bump after changing the art so browsers and GitHub's image cache fetch the new SVGs
-ASSET_VERSION = "3"
+ASSET_VERSION = "4"
 SKILLS = [
     "python,java,kotlin,dart,ts,js,c,cpp",  # languages
     "html,css,react,nextjs,vue,vite,tailwind,materialui,flutter",  # frontend
