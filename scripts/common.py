@@ -22,7 +22,7 @@ NOW = [
     ("Studying", "Senior CS at UT Arlington, May 2027"),
     ("Working", "Web Developer at UTA's Office of IT"),
     ("Building", "Combat Capture, ML for sparring"),
-    ("Looking for", "Summer 2027 SWE internships"),
+    ("Looking for", "SWE and AI/ML engineer roles, full-time or internship"),
 ]
 
 PORTFOLIO = "https://zhengyaoportfolio.vercel.app"

@@ -10,13 +10,16 @@ CONTRIB = {"beach": "beach", "wanted": "map", "voyage": "sea", "manga": "manga"}
 SKILL_THEME = {"beach": "light", "wanted": "light", "voyage": "dark", "manga": "light"}
 RAW = "https://raw.githubusercontent.com/Zhao9114/Zhao9114/output"
 # bump after changing the art so browsers and GitHub's image cache fetch the new SVGs
-ASSET_VERSION = "2"
+ASSET_VERSION = "3"
 SKILLS = [
-    "python,java,ts,js,c,cpp,html",
-    "react,vue,flutter,tailwind,graphql,nodejs",
-    "postgres,mysql,mongodb,firebase,aws,docker,kubernetes",
-    "git,linux,androidstudio,pytorch,tensorflow",
+    "python,java,kotlin,dart,ts,js,c,cpp",  # languages
+    "html,css,react,nextjs,vue,vite,tailwind,materialui,flutter",  # frontend
+    "nodejs,nestjs,flask,graphql,postgres,mysql,mongodb,sqlite,supabase",  # backend + data
+    "firebase,aws,vercel,docker,kubernetes,githubactions,git,linux,wordpress",  # cloud + devops
+    "pytorch,tensorflow,wasm,figma,androidstudio,vitest",  # ML + tools
 ]
+# portfolio skills that skillicons.dev has no icon for
+SKILLS_EXTRA = "React Native · Pandas · NumPy · Stripe · DigitalOcean · Odoo · Sitecore · Claude, OpenAI and Gemini APIs"
 
 
 def readme(theme: str, asset: str, contrib_src: str) -> str:
@@ -85,8 +88,8 @@ def readme_voyage(asset: str, raw: str) -> str:
         )
         cards.append(f'<p align="center">\n{pair}\n</p>')
     skills = "\n".join(
-        f'  <img src="https://skillicons.dev/icons?i={row}&theme=dark&perline=7" alt="skills" /><br/>' for row in SKILLS
-    )
+        f'  <img src="https://skillicons.dev/icons?i={row}&theme=dark&perline=9" alt="skills" /><br/>' for row in SKILLS
+    ) + f"\n  <sub>also: {SKILLS_EXTRA}</sub>"
     return f"""<!-- NIGHT VOYAGE theme, Grand Line edition: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
 
 <a href="{NAV[0][1]}"><img src="{a("hero")}" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>

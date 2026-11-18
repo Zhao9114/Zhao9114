@@ -160,7 +160,7 @@ def chest() -> str:
         for x, y, d in ((-40, -50, 0), (30, -62, .7), (50, -30, 1.3), (-10, -76, 1.9))
     )
     x, pills = 300, ""
-    for t in ("Flutter", "TensorFlow Lite", "FFmpeg", "SQLite"):
+    for t in ("React Native", "TensorFlow Lite", "FFmpeg", "SQLite"):
         w = 18 + len(t) * 7.2
         pills += f'<rect x="{x}" y="136" width="{w:.0f}" height="24" rx="12" fill="{TEAL}" fill-opacity=".22"/><text x="{x + w / 2:.0f}" y="152" text-anchor="middle" class="sans b" font-size="11" style="fill:#7fd6d6">{t}</text>'
         x += w + 7
@@ -182,7 +182,7 @@ def chest() -> str:
 </g>
 <text x="300" y="46" class="sans b muted" font-size="12" letter-spacing="3">CURRENT ARC · NOW BUILDING</text>
 <text x="300" y="84" class="pir" font-size="36">Combat Capture</text>
-<text x="300" y="112" class="sans" font-size="14">Flutter app that uses on-device ML to spot sparring rounds and clip them automatically.</text>
+<text x="300" y="112" class="sans" font-size="14">React Native app that uses on-device ML to spot sparring rounds and clip them automatically.</text>
 {pills}
 <text x="{W - 40}" y="46" text-anchor="end" class="sans b gold" font-size="11" letter-spacing="2">IN DEVELOPMENT</text>
 <rect x="{W - 240}" y="58" width="200" height="10" rx="5" fill="#12233c"/>
@@ -295,7 +295,8 @@ def den_den_mushi() -> str:
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="{GOLD}" stroke-opacity=".25"/>
 <text x="340" y="48" class="sans b muted" font-size="12" letter-spacing="3">SEND A MESSAGE</text>
 <text x="340" y="86" class="pir" font-size="34">Ring the Den Den Mushi</text>
-<text x="340" y="112" class="sans" font-size="15">zhengyaowong.cs@gmail.com  \u00b7  open to Summer 2027 SWE internships</text>
+<text x="340" y="112" class="sans" font-size="15">Seeking SWE and AI/ML engineer roles  \u00b7  full-time or internship</text>
+<text x="{W - 40}" y="94" text-anchor="end" class="sans muted" font-size="13">zhengyaowong.cs@gmail.com</text>
 <g transform="translate({W - 200} 30)"><rect width="160" height="40" rx="20" fill="{GOLD}"/>
   <text x="80" y="25" text-anchor="middle" class="sans b" font-size="13" letter-spacing="1.5" style="fill:#0a1628">EMAIL ME \u2192</text></g>"""
     css = BASE_CSS + """
@@ -342,7 +343,7 @@ def about() -> str:
         ("crew", '"UT Arlington, CS \'27"'),
         ("aboard", '"UTA Office of IT"'),
         ("building", '"Combat Capture"'),
-        ("seeking", '"Summer 2027 SWE internship"'),
+        ("seeking", '"SWE / AI/ML roles, FT or intern"'),
         ("rule", '"own every line before it ships"'),
     ]
     lines = [f'<tspan fill="{K}">const</tspan> <tspan fill="{FOAM}">captain</tspan> <tspan fill="{P}">= {{</tspan>']
