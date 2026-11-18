@@ -333,7 +333,7 @@ def header(num: str, title: str, sub: str) -> str:
 
 
 def about() -> str:
-    W, H = 1000, 352
+    W, H = 1000, 330
     K, KEY, STR, P = "#c792ea", "#8fc6ff", GOLD, MUTED
     rows = [
         ("name", '"Zheng Yao Wong"'),
@@ -344,7 +344,6 @@ def about() -> str:
         ("building", '"Combat Capture"'),
         ("seeking", '"Summer 2027 SWE internship"'),
         ("rule", '"own every line before it ships"'),
-        ("dream", '"King of the Devs"'),
     ]
     lines = [f'<tspan fill="{K}">const</tspan> <tspan fill="{FOAM}">captain</tspan> <tspan fill="{P}">= {{</tspan>']
     for k, v in rows:
@@ -359,8 +358,8 @@ def about() -> str:
 <circle cx="28" cy="23" r="6" fill="{RED}"/><circle cx="48" cy="23" r="6" fill="{GOLD}"/><circle cx="68" cy="23" r="6" fill="{TEAL}"/>
 <text x="500" y="28" text-anchor="middle" class="mono muted" font-size="13">captain.ts</text>
 {code}
-<rect x="112" y="{92 + 10 * 22 + 4}" width="9" height="16" fill="{GOLD}" class="blink"/>
-<g transform="translate(820 214) scale(2.4)" opacity=".12">{jolly(GOLD, '#0b1a30', line='#0b1a30')}</g>"""
+<rect x="112" y="{92 + 9 * 22 + 4}" width="9" height="16" fill="{GOLD}" class="blink"/>
+<g transform="translate(820 190) scale(2.4)" opacity=".12">{jolly(GOLD, '#0b1a30', line='#0b1a30')}</g>"""
     css = BASE_CSS + ".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
     return svg(W, H, body, FONTS, css, "About")
 
@@ -383,8 +382,7 @@ def card(p: dict) -> str:
 <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="url(#cg)" stroke="{GOLD}" stroke-opacity=".35"/>
 <rect x="8" y="8" width="{W - 16}" height="{H - 16}" rx="11" fill="none" stroke="{GOLD}" stroke-opacity=".14"/>
 <g transform="translate({W - 74} 120) rotate(12) scale(.5)" opacity=".1">{jolly(GOLD, CARD, line=CARD)}</g>
-<text x="28" y="40" font-size="19" letter-spacing="7" style="font-family:Fell,serif;fill:{GOLD}">WANTED</text>
-<text x="{W - 28}" y="38" text-anchor="end" class="sans b muted" font-size="10.5" letter-spacing="2">{esc(p['kind'].upper())}</text>
+<text x="28" y="40" class="sans b muted" font-size="11" letter-spacing="2.2">{esc(p['kind'].upper())}</text>
 <text x="28" y="76" class="pir" font-size="34">{esc(p['name'])}</text>
 {award}
 {''.join(f'<text x="28" y="{y0 + i * 21}" class="sans" font-size="14">{esc(l)}</text>' for i, l in enumerate(desc))}
@@ -403,7 +401,7 @@ def footer() -> str:
   <path d="{wave_path(112, 8, 250, 1500, H)}" fill="#0f2f52" class="wv" style="animation-duration:12s"/>
   <path d="{wave_path(126, 9, 250, 1500, H)}" fill="#16477a" class="wv" style="animation-duration:8s"/>
 </g>
-<text x="500" y="56" text-anchor="middle" class="pir" font-size="30">The One Piece is real!</text>
+<text x="500" y="56" text-anchor="middle" class="pir" font-size="30">People’s dreams... never end!</text>
 <text x="500" y="84" text-anchor="middle" class="sans muted" font-size="13">zhengyaowong.cs@gmail.com  ·  zhengyaoportfolio.vercel.app</text>"""
     css = BASE_CSS + ".wv{animation:dr linear infinite}@keyframes dr{to{transform:translateX(-250px)}}"
     return svg(W, H, body, FONTS, css, "Footer")
