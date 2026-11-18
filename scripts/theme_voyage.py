@@ -125,13 +125,13 @@ def hero() -> str:
   {sparks}
 </g>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="{GOLD}" stroke-opacity=".25"/>
-<text x="60" y="94" class="sans b muted" font-size="13" letter-spacing="3">GRAND LINE ROOKIE</text>
+<text x="60" y="94" class="sans b muted" font-size="13" letter-spacing="3">HEY, I'M</text>
 <text x="60" y="152" class="pir" font-size="66" filter="url(#soft)" opacity=".55">{esc(NAME)}</text>
 <text x="60" y="152" class="pir" font-size="66">{esc(NAME)}</text>
 <text x="62" y="186" class="sans" font-size="17">{esc(ROLE)}  \u00b7  {esc(ORIGIN)}</text>
 {''.join(f'<text x="62" y="{218 + i * 22}" class="sans muted" font-size="15">{esc(l)}</text>' for i, l in enumerate(tag))}
-<text x="62" y="276" class="mono gold" font-size="14">&gt; {esc(PRINCIPLE.lower())}</text>
-<rect x="{62 + 6 + (len(PRINCIPLE) + 2) * 8.43:.0f}" y="264" width="8" height="15" fill="{GOLD}" class="blink"/>
+<text x="62" y="276" class="mono gold" font-size="14">&gt; {esc(STATUS)}</text>
+<rect x="{62 + 6 + (len(STATUS) + 2) * 8.43:.0f}" y="264" width="8" height="15" fill="{GOLD}" class="blink"/>
 """
     css = BASE_CSS + f"""
 .wv{{animation:dr linear infinite}}@keyframes dr{{to{{transform:translateX(-250px)}}}}

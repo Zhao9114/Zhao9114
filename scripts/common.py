@@ -15,8 +15,8 @@ ROOT = Path(__file__).resolve().parent.parent
 NAME = "Zheng Yao Wong"
 ROLE = "Full-stack developer"
 ORIGIN = "Malaysia → Arlington, TX"
-TAGLINE = "I build things that feel fast, look intentional, and solve actual problems."
-PRINCIPLE = "Owning every line before it ships"
+TAGLINE = "CS senior at UT Arlington. I like building things people actually use."
+STATUS = "currently teaching an app to watch sparring footage"
 
 NOW = [
     ("Studying", "Senior CS at UT Arlington, May 2027"),
