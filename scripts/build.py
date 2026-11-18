@@ -98,7 +98,7 @@ def readme_voyage(asset: str, raw: str) -> str:
         "https://readme-typing-svg.demolab.com?font=Pirata+One&size=30&duration=3000&pause=900"
         f"&color=F4C95D&center=true&vCenter=true&width=720&height=50&lines={lines}"
     )
-    return f"""<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart + serpent refreshed daily by .github/workflows/widgets.yml -->
+    return f"""<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
 
 <a href="{NAV[0][1]}"><img src="{a("hero")}" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>
 
@@ -131,8 +131,6 @@ def readme_voyage(asset: str, raw: str) -> str:
 <img src="{a("h-log")}" width="100%" alt="Contributions" />
 
 <img src="{raw}/contrib-sea.svg" width="100%" alt="Contribution sea chart" />
-
-<img src="{raw}/serpent.svg" width="100%" alt="sea serpent eating the contribution grid" />
 
 <a href="mailto:zhengyaowong.cs@gmail.com"><img src="{a("bottle")}" width="100%" alt="Message in a bottle: zhengyaowong.cs@gmail.com" /></a>
 

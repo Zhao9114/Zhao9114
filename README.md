@@ -1,4 +1,4 @@
-<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart + serpent refreshed daily by .github/workflows/widgets.yml -->
+<!-- NIGHT VOYAGE theme: built by scripts/build.py, chart refreshed daily by .github/workflows/widgets.yml -->
 
 <a href="https://zhengyaoportfolio.vercel.app/recruiter"><img src="assets/voyage/hero.svg" width="100%" alt="Zheng Yao Wong, full-stack developer" /></a>
 
@@ -46,8 +46,6 @@
 <img src="assets/voyage/h-log.svg" width="100%" alt="Contributions" />
 
 <img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/contrib-sea.svg" width="100%" alt="Contribution sea chart" />
-
-<img src="https://raw.githubusercontent.com/Zhao9114/Zhao9114/output/serpent.svg" width="100%" alt="sea serpent eating the contribution grid" />
 
 <a href="mailto:zhengyaowong.cs@gmail.com"><img src="assets/voyage/bottle.svg" width="100%" alt="Message in a bottle: zhengyaowong.cs@gmail.com" /></a>
 
